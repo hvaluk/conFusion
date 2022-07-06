@@ -10,7 +10,7 @@ router.use(bodyParser.json());
 
 /* GET users listing. */
 router.route('/')
-  .get(authenticate.verifyOrdinaryUser, authenticate.verifyAdmin, function (req, res, next) {
+  .get(authenticate.verifyUser, authenticate.verifyAdmin, function (req, res, next) {
     User.find({})
       .then((users) => {
         res.statusCode = 200;
